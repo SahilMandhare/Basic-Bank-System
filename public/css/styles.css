@@ -141,10 +141,11 @@ p {
 /* Transfer */
 
 #transfer{
-  background-color: white;
+  background: linear-gradient(to right, rgb(58 22 120), rgb(21 0 46));
+  color: white;
   position: absolute;
   width: 38%;
-  top: 30px;
+  top: 55%;
   left: 450px;
   z-index: 1;
 }
@@ -178,6 +179,16 @@ hr{
   padding: 10px 32px;
 }
 
+.input-group #basic-addon2, .input-group input, .input-group span{
+  background-color: rgba(0, 0, 0, 0);
+  color: white;
+}
+
+input[type="text"]:focus{
+  background: linear-gradient(to right, rgb(58 22 120), rgb(21 0 46));
+  color: white;
+}
+
 .transfer-button{
   padding: 10px 20px 20px;
   text-align: right;
@@ -189,19 +200,13 @@ hr{
 
 .visible{
   visibility: hidden!important;
-  z-index: 10;
-  opacity: 1;
+  z-index: 1;
+  opacity: 2;
 }
 
-.active{
-  opacity: 1;
-}
-
-.not-touch{
-  /* filter: blur(5px); */
+.no-active{
+  background: rgba(0, 0, 0, 0.856)!important;
   opacity: 0.5;
-  background: black;
-  z-index: 0;
 }
 
 /* .visible{

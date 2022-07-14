@@ -17,58 +17,63 @@ app.set("view engine", "ejs");
 
 mongoose.connect("mongodb://localhost:27017/userDB", { useNewUrlParser: true });
 
-const userSchema = ({
+const userSchema = {
   name: String,
   email: String,
   amount: Number,
-});
+};
 
-const userTransactionSchema = ({
-    sender : String,
-    Receiver : String,
-    amount : Number
-});
+const userTransactionSchema = {
+  sender: String,
+  receiver: String,
+  amount: Number,
+};
 
 const User = new mongoose.model("User", userSchema);
-const UserTransaction = new mongoose.model("UserTransaction", userTransactionSchema);
+const UserTransaction = new mongoose.model(
+  "UserTransaction",
+  userTransactionSchema
+);
 
 // Default Users
 
 const user1 = new User({
   name: "John",
-  email: "johnc@gmail.com",
+  email: "john@gmail.com",
   amount: 10000,
 });
 
 const user2 = new User({
   name: "Ram",
-  email: "ramj@gmail.com",
+  email: "ram@gmail.com",
   amount: 20000,
 });
 
 const user3 = new User({
   name: "Rajesh",
-  email: "rajeshd@gmail.com",
+  email: "rajesh@gmail.com",
   amount: 30000,
 });
 
 const user4 = new User({
   name: "Alexa",
-  email: "alexag@gmail.com",
+  email: "alexa@gmail.com",
   amount: 40000,
 });
 
 const user5 = new User({
   name: "Siri",
-  email: "siria@gmail.com",
+  email: "siri@gmail.com",
   amount: 50000,
 });
 
 const user6 = new User({
   name: "Krishna",
-  email: "krishnag@gmail.com",
+  email: "krishna@gmail.com",
   amount: 60000,
 });
+
+const userTrans = [];
 
 const defaultUser = [user1, user2, user3, user4, user5, user6];
 
@@ -88,39 +93,76 @@ app.get("/", function (req, res) {
 
 app.get("/transaction", function (req, res) {
   User.find({}, function (err, users) {
-    if(users.length === 0){
-        User.insertMany(defaultUser, function(err){
-            if(err){
-                console.log(err);
-            }else{
-                console.log("Inserted All");
-            }
-            res.redirect("transaction");
-        });
-    }else{
-        res.render("transaction", { usersDetail: users });
+    if (users.length === 0) {
+      User.insertMany(defaultUser, function (err) {
+        if (err) {
+          console.log(err);
+        } else {
+          console.log("Inserted All");
+        }
+        res.redirect("transaction");
+      });
+    } else {
+      res.render("transaction", { usersDetail: userTrans });
     }
   });
 });
 
 app.get("/customer", function (req, res) {
-    User.find({}, function (err, users) {
-        if(users.length === 0){
-            User.insertMany(defaultUser, function(err){
-                if(err){
-                    console.log(err);
-                }else{
-                    console.log("Inserted All");
-                }
-                res.redirect("customer");
-            });
-        }else{
-            res.render("customer", { usersDetail : users });
+  User.find({}, function (err, users) {
+    if (users.length === 0) {
+      User.insertMany(defaultUser, function (err) {
+        if (err) {
+          console.log(err);
+        } else {
+          console.log("Inserted All");
         }
+        res.redirect("customer");
       });
+    } else {
+      res.render("customer", { usersDetail: users });
+    }
+  });
 });
 
-app.get("/transfer", function(req,res){
+app.post("/customer", function (req, res) {
+  let senderName = req.body.senderName;
+  let recevierName = req.body.recevierName;
+  let price = req.body.price;
+
+  User.find(
+    { $and: [{ name: { $in: [senderName, recevierName] } }] },
+    function (err, foundList) {
+      if (!foundList) {
+        console.log("Not Found!!");
+        res.redirect("/customer");
+
+      } else {
+        if (foundList.length > 1) {
+          const user = {
+            sender: senderName,
+            receiver: recevierName,
+            amount: price,
+          };
+
+          userTrans.push(user);
+
+          console.log("Found!!", foundList);
+
+          res.redirect("/transaction");
+          
+        } else {
+          res.redirect("/customer");
+          console.log("Not Founds!!");
+        }
+      }
+    }
+  );
+
+  console.log(senderName, recevierName, price);
+});
+
+app.get("/transfer", function (req, res) {
   res.render("transfer");
 });
 
