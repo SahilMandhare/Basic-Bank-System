@@ -1,0 +1,344 @@
+body {
+  font-family: "Montserrat", sans-serif;
+  text-align: center;
+  z-index: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Montserrat", sans-serif;
+}
+
+p {
+  color: #8f8f8f;
+}
+
+/* Container */
+
+.head-container{
+  margin: 0;
+  padding: 0;
+}
+
+/* Heading */
+
+.big-heading {
+  font-size: 3.5rem;
+  line-height: 1.5;
+  font-weight: 600;
+}
+
+.heading-para {
+  font-size: 20px;
+  margin: 25px 0 0 0;
+  color: rgb(222, 215, 215);
+}
+
+.section-heading {
+  font-weight: bolder;
+  font-size: 1.5rem;
+}
+
+.container-fluid {
+  padding: 7% 15%;
+}
+
+/* Section */
+
+.colored-section {
+  background-color: #181c2e;
+  color: white;
+}
+
+.white-section {
+  background-color: white;
+}
+
+/* Title Section */
+
+#title {
+  text-align: left;
+}
+
+#title .container-fluid {
+  padding: 3% 13% 7%;
+}
+
+/* Navbar Section */
+
+.navbar {
+  padding: 0 0 4.5rem 0;
+}
+
+.navbar-brand {
+  font-family: "Ubuntu", sans-serif;
+  font-weight: bold;
+}
+
+.nav-link {
+  font-family: "Montserrat", sans-serif;
+}
+
+/* Download Button */
+
+.download-button {
+  margin: 5% 3% 5% 0;
+}
+
+.transcation-download-button{
+  margin: 5% 3% 5% 0;
+  width: 350px;
+}
+
+.transaction-button-div{
+  padding: 17px 202px 5px 201px;
+}
+
+.google-play-btn:hover > .google-play {
+  filter: contrast(0%);
+}
+
+.iphone-bank {
+  transform: rotate(25deg);
+  width: 25%;
+  position: absolute;
+  right: 21%;
+}
+
+.transaction-bank-img{
+  transform: rotate(25deg);
+  width: 23%;
+  position: absolute;
+  right: 21%;
+}
+
+.start-container{
+  text-align: center;
+}
+
+/* Transcation */
+
+#transaction{
+  padding: 7% 12%;
+  /* background-image: -webkit-linear-gradient(65deg, #47b5ff 50%, #E4E9FD 50%); */
+  /* background-color: #f5f5f5; */
+  background-image: url("../images/star1.png");
+}
+
+.user-table tr{
+  border-radius: 10px;
+  box-shadow: 15px -20px 20px 10px rgb(0 0 0 / 30%);
+}
+
+/* Customer */
+
+
+
+/* Transfer */
+
+#transfer{
+  background-color: white;
+  position: absolute;
+  width: 38%;
+  top: 30px;
+  left: 450px;
+  z-index: 1;
+}
+
+.transfer-head{
+  padding: 10px 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.transfer-head h4{
+  margin: 0;
+}
+
+.transfer-head p{
+  margin: 0;
+  padding: 10px 0;
+  position: relative;
+  /* top: 6px; */
+  font-weight: 800;
+  cursor: pointer;
+}
+
+hr{
+  margin: 0;
+  padding: 5px;
+}
+
+.transfer-input{
+  padding: 10px 32px;
+}
+
+.transfer-button{
+  padding: 10px 20px 20px;
+  text-align: right;
+}
+
+.transfer-button button{
+  margin: 0 5px;
+}
+
+.visible{
+  visibility: hidden!important;
+  z-index: 10;
+  opacity: 1;
+}
+
+.active{
+  opacity: 1;
+}
+
+.not-touch{
+  /* filter: blur(5px); */
+  opacity: 0.5;
+  background: black;
+  z-index: 0;
+}
+
+/* .visible{
+  position: fixed;
+  top: 40%;
+  left: 50%;
+  width: 600px;
+  background: #fff;
+  transform: translate(-50%,-50%);
+  visibility: hidden!important;
+  opacity: 0;
+  padding: 50px;
+  box-shadow: 0 5px 30px rgba(0, 0, 0, 0,30);
+  z-index: 10;
+}
+
+.active{
+  top: 40%;
+  visibility: visible;
+  opacity: 1;
+  transition: 0.5s;
+}
+
+.not-touch{
+  filter: blur(5px);
+  opacity: 0.5;
+  background: black;
+  z-index: 1;
+} */
+
+/* Feature Section */
+
+#features {
+  margin: 0;
+  position: relative;
+  background-image: url("../images/star1.png");
+}
+
+.feature-div {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.feature-icon {
+  color: #0b67d9;
+}
+
+.feature-icon:hover {
+  color: #181c2e;
+}
+
+/* Testimonial Section */
+
+#testimonials {
+  background-color: #0b67d9;
+}
+
+.testimonials-heading {
+  font-size: 2.5rem;
+  line-height: 1.5;
+  font-weight: 800;
+}
+
+.testimonials-image {
+  width: 10%;
+  border-radius: 100%;
+  margin: 20px;
+}
+
+/* Press Section */
+
+#press {
+  background-color: #0b67d9;
+  padding: 0 0 3% 0;
+}
+
+.press-logo {
+  width: 15%;
+  padding: 20px 20px 50px;
+}
+
+/* Footer */
+
+#footer {
+  padding: 3% 15%;
+}
+
+.footer-link {
+  padding: 15px;
+}
+
+.footer-link a {
+  all: unset;
+  cursor: pointer;
+}
+
+.footer-link a:hover {
+  color: #0b67d9;
+}
+
+.footer-link i {
+  padding: 10px;
+}
+
+@media (max-width: 1080px) {
+  #title {
+    text-align: center;
+  }
+
+  .iphone-bank {
+    position: static;
+    width: 55%;
+    transform: rotate(0);
+  }
+
+  .press-logo {
+    width: 24%;
+    padding: 20px 20px 50px;
+  }
+}
+
+@media (min-width : 1500px) and (max-width : 900px) {
+  .transaction-button-div{
+    padding: 17px 107px 5px 222px;
+  }
+}
+
+@media (max-width : 700px) and (min-width : 300px) {
+  .transaction-button-div{
+    padding: 17px 0px 5px 0px;
+  }
+}
+
+@media (max-width : 1000px) and (min-width : 700px) {
+  .transaction-button-div{
+    padding: 20px 22px 5px 126px;
+  }
+}

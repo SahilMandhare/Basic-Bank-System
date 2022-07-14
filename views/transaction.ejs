@@ -1,0 +1,101 @@
+<%- include('potraits/header') -%>
+
+<section id="title">
+  <div class="colored-section container-fluid">
+    <!-- Nav Bar -->
+
+    <nav class="navbar navbar-expand-lg navbar-dark fs-5">
+      <a class="navbar-brand fs-1" href="/">Dexter Bank</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarNavDropdown"
+        aria-controls="navbarNavDropdown"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item ms-5">
+            <a class="nav-link" href="#footer">Contact</a>
+          </li>
+          <li class="nav-item ms-5">
+            <a class="nav-link" href="#transaction">Transaction</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Title -->
+
+    <div class="colored-section start-container">
+      <!-- <div class="col-lg-6"> -->
+      <h1 class="big-heading">Expertise you need. Service you deserve!</h1>
+      <p class="heading-para">
+        It's easy, convenient and secure with the Dexter Bank site.
+      </p>
+      <div class="transaction-button-div">
+        <div class="row">
+          <a href="/transaction" class="col-lg-6">
+            <button
+              type="button"
+              class="btn btn-primary btn-lg transcation-download-button"
+            >
+              <i class="bi bi-bank"></i> Transaction History
+            </button>
+          </a>
+          <a href="/customer" class="col-lg-6">
+            <button
+              type="button"
+              class="google-play-btn btn btn-outline-light btn-lg transcation-download-button"
+            >
+              <i class="bi bi-person-video2"></i> Customer Details
+            </button>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- <div class="position-relative"> -->
+    <!-- <div class="col-lg-6">
+          <img
+            class="transaction-bank-img"
+            src="images/Transaction-phone.png"
+            alt="iphone-mockup"
+          />
+        </div> -->
+    <!-- </div> -->
+  </div>
+</section>
+
+<!-- Transcation -->
+<section id="transaction">
+  <table class="table table-dark table-striped user-table">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Sender</th>
+        <th scope="col">Receiver</th>
+        <th scope="col">Amount Transferred</th>
+      </tr>
+    </thead>
+    <tbody>
+        <% let i = 1;%>
+        <% usersDetail.forEach(user =>{ %>
+            <tr>
+                <th scope="row"><%= i %></th>
+                <td><%= user.name %></td>
+                <td><%= user.email %></td>
+                <td><%= user.amount %></td>
+              </tr>
+              <% i++ %>
+        <% }) %>
+      
+    </tbody>
+  </table>
+</section>
+
+<%- include('potraits/footer') -%>

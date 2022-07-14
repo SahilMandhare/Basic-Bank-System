@@ -1,0 +1,164 @@
+<%- include('potraits/header') -%>
+<section id="title">
+  <div class="colored-section container-fluid">
+    <!-- Nav Bar -->
+
+    <nav class="navbar navbar-expand-lg navbar-dark fs-5">
+      <a class="navbar-brand fs-1" href="/">Dexter Bank</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarNavDropdown"
+        aria-controls="navbarNavDropdown"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item ms-5">
+            <a class="nav-link" href="#footer">Contact</a>
+          </li>
+          <li class="nav-item ms-5">
+            <a class="nav-link" href="#features">Features</a>
+          </li>
+          <li class="nav-item ms-5">
+            <a class="nav-link" href="#testimonials">Comments</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Title -->
+
+    <div class="row colored-section">
+      <div class="col-lg-6">
+        <h1 class="big-heading">Expertise you need. Service you deserve!</h1>
+        <p class="heading-para">
+          It's easy, convenient and secure with the Dexter Bank site.
+        </p>
+        <a href="/transaction">
+          <button
+            type="button"
+            class="btn btn-primary btn-lg download-button transaction-button"
+          >
+            <i class="bi bi-bank"></i> Transaction History
+          </button>
+        </a>
+        <a href="/customer">
+          <button
+            type="button"
+            class="google-play-btn btn btn-outline-light btn-lg download-button customer-button"
+          >
+            <i class="bi bi-person-video2"></i> Customer Details
+          </button>
+        </a>
+      </div>
+      <div class="col-lg-6">
+        <img
+          class="iphone-bank"
+          src="images/animation-bank.gif"
+          alt="iphone-mockup"
+        />
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Features -->
+
+<section id="features">
+  <div class="container-fluid white-section">
+    <div class="row">
+      <div class="col-lg-4 feature-div">
+        <i class="bi bi-check-circle-fill feature-icon fa-4x"></i>
+        <h3 class="section-heading text-center">Easy to use.</h3>
+        <p class="text-center">Transfer money within minutes.</p>
+      </div>
+
+      <div class="col-lg-4 feature-div">
+        <i class="bi bi-clock-history feature-icon fa-4x"></i>
+        <h3 class="section-heading text-center">Track Money</h3>
+        <p class="text-center">Keep track of your Transaction.</p>
+      </div>
+
+      <div class="col-lg-4 feature-div">
+        <i class="bi bi-people-fill feature-icon fa-4x"></i>
+        <h3 class="section-heading text-center">Huge Network</h3>
+        <p class="text-center">Wide range of people to secure your money.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Testimonials -->
+
+<section class="colored-section" id="testimonials">
+  <div
+    id="carouselExampleIndicators"
+    class="carousel slide"
+    data-bs-ride="true"
+  >
+    <div class="carousel-inner">
+      <div class="carousel-item container-fluid active">
+        <h2 class="testimonials-heading">
+          I have my salary account in SBI, when I applied for the card I got my
+          statement on time. I am very much satisfied with the the account. Net
+          banking is also functioning smooth and convenient for me. There are
+          some offer in the cards which was good.
+        </h2>
+        <img
+          class="testimonials-image"
+          src="images/dog-img.jpg"
+          alt="dog-profile"
+        />
+        <em>Pebbles, New York</em>
+      </div>
+      <div class="carousel-item container-fluid">
+        <h2 class="testimonials-heading">
+          have been holding a salary account with SBI approximately 13 yeas. I
+          need to maintain a minimum balance of around 10K. There is some SMS
+          and ATM charges are applicable on quarterly up to 70 rupees. Mobile
+          app is fine to use. ATM and branches services are good.
+        </h2>
+        <img
+          class="testimonials-image"
+          src="images/lady-img.jpg"
+          alt="lady-profile"
+        />
+        <em>Beverly, Illinois</em>
+      </div>
+    </div>
+    <button
+      class="carousel-control-prev"
+      type="button"
+      data-bs-target="#carouselExampleIndicators"
+      data-bs-slide="prev"
+    >
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button
+      class="carousel-control-next"
+      type="button"
+      data-bs-target="#carouselExampleIndicators"
+      data-bs-slide="next"
+    >
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+</section>
+
+<!-- Press -->
+
+<section class="colored-section" id="press">
+  <img class="press-logo" src="images/techcrunch.png" alt="tc-logo" />
+  <img class="press-logo" src="images/tnw.png" alt="tnw-logo" />
+  <img class="press-logo" src="images/bizinsider.png" alt="biz-insider-logo" style="color: white;"/>
+  <img class="press-logo" src="images/mashable.png" alt="mashable-logo" />
+</section>
+
+<%- include('potraits/footer') -%>

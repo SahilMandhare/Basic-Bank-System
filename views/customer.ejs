@@ -1,0 +1,156 @@
+<%- include('potraits/header') -%>
+
+<div class="head-container">
+
+  <section id="title">
+    <div class="colored-section container-fluid">
+    <!-- Nav Bar -->
+
+    <nav class="navbar navbar-expand-lg navbar-dark fs-5">
+      <a class="navbar-brand fs-1" href="/">Dexter Bank</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarNavDropdown"
+        aria-controls="navbarNavDropdown"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item ms-5">
+            <a class="nav-link" href="#footer">Contact</a>
+          </li>
+          <li class="nav-item ms-5">
+            <a class="nav-link" href="#transaction">Customer List</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    
+    <!-- Title -->
+    
+    <div class="colored-section start-container">
+      <!-- <div class="col-lg-6"> -->
+      <h1 class="big-heading">Expertise you need. Service you deserve!</h1>
+      <p class="heading-para">
+        It's easy, convenient and secure with the Dexter Bank site.
+      </p>
+      <div class="transaction-button-div">
+        <div class="row">
+          <a href="/transaction" class="col-lg-6">
+            <button
+              type="button"
+              class="btn btn-primary btn-lg transcation-download-button"
+              >
+              <i class="bi bi-bank"></i> Transaction History
+            </button>
+          </a>
+          <a href="/customer" class="col-lg-6">
+            <button
+              type="button"
+              class="google-play-btn btn btn-outline-light btn-lg transcation-download-button"
+            >
+              <i class="bi bi-person-video2"></i> Customer Details
+            </button>
+          </a>
+        </div>
+      </div>
+    </div>
+    
+    <!-- <div class="position-relative"> -->
+    <!-- <div class="col-lg-6">
+          <img
+            class="transaction-bank-img"
+            src="images/Transaction-phone.png"
+            alt="iphone-mockup"
+          />
+        </div> -->
+        <!-- </div> -->
+      </div>
+    </section>
+    
+    
+    <!-- Transfer -->
+    
+    <section id="transfer" class="visible">
+  <form action="" method="post">
+    <div class="transfer-container">
+      <div class="transfer-head">
+        <h4>Send Money</h4>
+        <p class="cut">X</p>
+      </div>
+      <hr>
+      <div class="transfer-input">
+        <div class="input-group mb-3">
+          <input type="text" class="form-control" placeholder="Sender's username" aria-label="Recipient's username" aria-describedby="basic-addon2">
+          <span class="input-group-text" id="basic-addon2">@gmail.com</span>
+        </div>
+        <div class="input-group mb-3">
+          <input type="text" class="form-control" placeholder="Receiver's username" aria-label="Recipient's username" aria-describedby="basic-addon2">
+          <span class="input-group-text" id="basic-addon2">@gmail.com</span>
+      </div>
+      <div class="input-group mb-3">
+        <span class="input-group-text">₹</span>
+        <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
+        <span class="input-group-text">.00</span>
+      </div>
+    </div>
+    <div class="transfer-button">
+      <button type="button" class="btn btn-outline-secondary">Close</button>
+      <button type="submit" class="btn btn-success">Submit</button>
+    </div>
+  </div>
+</form>
+</section>
+
+<!-- Transcation -->
+<section id="transaction">
+  <table class="table table-dark table-striped user-table">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Name</th>
+        <th scope="col">Email-ID</th>
+        <th scope="col">Current Balance</th>
+        <th scope="col">Transfer Money</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% let i = 1;%>
+      <% usersDetail.forEach(user =>{ %>
+        <tr>
+          <th scope="row"><%= i %></th>
+          <td><%= user.name %></td>
+          <td><%= user.email %></td>
+          <td><%= user.amount %></td>
+          <td><button class="btn btn-md btn-primary btn-transfer">Transfer</button></td>
+            <!-- <a href="/transfer">
+            </a> -->
+          </tr>
+        <% i++ %>
+      <% }) %>
+      
+    </tbody>
+  </table>
+</section>
+
+<script>
+  $('.cut').on("click", ()=>{
+    $('#transfer').toggleClass('visible');
+    $('#transfer').toggleClass('active');
+    $('.head-container').toggleClass('not-touch');
+  });
+
+  $('.btn-transfer').on("click", ()=>{
+    $('#transfer').toggleClass('visible');
+    $('#transfer').toggleClass('active');
+    $('.head-container').toggleClass('not-touch');
+  });
+</script>
+
+</div>
+<%- include('potraits/footer') -%>
