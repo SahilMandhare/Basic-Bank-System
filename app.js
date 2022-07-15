@@ -103,7 +103,13 @@ app.get("/transaction", function (req, res) {
         res.redirect("transaction");
       });
     } else {
-      res.render("transaction", { usersDetail: userTrans });
+
+      UserTransaction.find({}, function(err, trans){
+        if(!err){
+          console.log("Hello", trans);
+          res.render("transaction", { usersDetail: trans });
+        }
+      });
     }
   });
 });
@@ -128,7 +134,7 @@ app.get("/customer", function (req, res) {
 app.post("/customer", function (req, res) {
   let senderName = req.body.senderName;
   let recevierName = req.body.recevierName;
-  let price = req.body.price;
+  let price = Number(req.body.price);
 
   User.find(
     { $and: [{ name: { $in: [senderName, recevierName] } }] },
@@ -136,7 +142,6 @@ app.post("/customer", function (req, res) {
       if (!foundList) {
         console.log("Not Found!!");
         res.redirect("/customer");
-
       } else {
         if (foundList.length > 1) {
           const user = {
@@ -145,12 +150,52 @@ app.post("/customer", function (req, res) {
             amount: price,
           };
 
+          // const newSenderAmount = Number(foundList[0].amount) - price;
+          // const newReceiverAmount = Number(foundList[1].amount) + price;
+
           userTrans.push(user);
+
+          User.findOneAndUpdate(
+            { name: senderName },
+            {
+              $inc: { amount: -price },
+            },
+            {
+              returnNewDocument: false,
+            },
+            function (err, result) {
+              if (!err) {
+                console.log(result);
+              }
+            }
+          );
+
+          User.findOneAndUpdate(
+            { name: recevierName },
+            {
+              $inc: { amount: price },
+            },
+            {
+              returnNewDocument: false,
+            },
+            function (err, result) {
+              if (!err) {
+                console.log(result);
+              }
+            }
+          );
+
+          UserTransaction.create(user, function(err){
+            if(!err){
+              console.log("Insert Value");
+            }else{
+              console.log(err);
+            }
+          });
 
           console.log("Found!!", foundList);
 
           res.redirect("/transaction");
-          
         } else {
           res.redirect("/customer");
           console.log("Not Founds!!");
