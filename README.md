@@ -1,7 +1,7 @@
 # Developer - Sahil Mandhare
 
 # Task
-> Basic Bank System - 
+> Basic Bank System - https://sahilmandhare.github.io/Basic-Bank-System/
 
 ## Table of contents
 * Homepage
@@ -9,7 +9,12 @@
 * Trascation History
 
 ## About
-> Created a simple website where payment gateway is integrated. There is a simple donate button on homepage, on clicking the donate button, the user will land on the payment page where user can select the amount to be paid and the payment type that includes Credit Card, Netbanking, Paypal and Debit Card. On successful payment an invoice will be generated on a new page regarding completion of the payment.
+> Database contains two Tables- Users Table & Transaction Table
+
+> User table have basic fields such as name, email & current balance. Transaction table records all transfers happened along with their time.
+
+> Flow of the Website: Home Page > View all Users > Select and View one User > Transfer Money > Select reciever > View all Users > View Transfer History.
+
 
 ## Technologies
 * HTML5
