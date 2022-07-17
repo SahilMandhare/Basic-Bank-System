@@ -96,10 +96,9 @@ app.get("/transaction", function (req, res) {
         res.redirect("transaction");
       });
     } else {
-
-      UserTransaction.find({}, function(err, trans){
-        if(!err){
-          console.log("Hello", trans);
+      UserTransaction.find({}, function (err, trans) {
+        if (!err) {
+          console.log("Hello");
           res.render("transaction", { usersDetail: trans });
         }
       });
@@ -134,6 +133,7 @@ app.post("/customer", function (req, res) {
     function (err, foundList) {
       if (!foundList) {
         console.log("Not Found!!");
+
         res.redirect("/customer");
       } else {
         if (foundList.length > 1) {
@@ -143,47 +143,51 @@ app.post("/customer", function (req, res) {
             amount: price,
           };
 
-          userTrans.push(user);
+          if (price >= foundList[0].amount) {
+            res.redirect("/customer");
+          } else {
+            userTrans.push(user);
 
-          User.findOneAndUpdate(
-            { name: senderName },
-            {
-              $inc: { amount: -price },
-            },
-            {
-              returnNewDocument: false,
-            },
-            function (err, result) {
-              if (!err) {
-                console.log(result);
+            User.findOneAndUpdate(
+              { name: senderName },
+              {
+                $inc: { amount: -price },
+              },
+              {
+                returnNewDocument: false,
+              },
+              function (err, result) {
+                if (!err) {
+                  console.log(result);
+                }
               }
-            }
-          );
+            );
 
-          User.findOneAndUpdate(
-            { name: recevierName },
-            {
-              $inc: { amount: price },
-            },
-            {
-              returnNewDocument: false,
-            },
-            function (err, result) {
-              if (!err) {
-                console.log(result);
+            User.findOneAndUpdate(
+              { name: recevierName },
+              {
+                $inc: { amount: price },
+              },
+              {
+                returnNewDocument: false,
+              },
+              function (err, result) {
+                if (!err) {
+                  console.log(result);
+                }
               }
-            }
-          );
+            );
 
-          UserTransaction.create(user, function(err){
-            if(!err){
-              console.log("Insert Value");
-            }else{
-              console.log(err);
-            }
-          });
+            UserTransaction.create(user, function (err) {
+              if (!err) {
+                console.log("Insert Value");
+              } else {
+                console.log(err);
+              }
+            });
 
-          res.redirect("/transaction");
+            res.redirect("/transaction");
+          }
         } else {
           res.redirect("/customer");
           console.log("Not Founds!!");

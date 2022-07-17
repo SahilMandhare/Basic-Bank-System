@@ -151,7 +151,7 @@
           </div>
         </div>
         <div class="transfer-button">
-          <button type="button" class="btn btn-outline-secondary">Close</button>
+          <button type="button" class="btn btn-outline-secondary transfer-close">Close</button>
           <button type="submit" class="btn btn-success">Submit</button>
         </div>
       </div>
@@ -163,12 +163,21 @@
       $("#transfer").toggleClass("visible");
       $(".start-container").toggleClass("no-active");
       $(".start-container button").prop("disabled", false);
+      $("html").toggleClass("stuck");
     });
 
     $(".btn-transfer").on("click", () => {
       $("#transfer").toggleClass("visible");
       $(".start-container").toggleClass("no-active");
       $(".start-container button").prop("disabled", true);
+      $("html").toggleClass("stuck");
+    });
+
+    $(".transfer-close").on("click", () => {
+      $("#transfer").toggleClass("visible");
+      $(".start-container").toggleClass("no-active");
+      $(".start-container button").prop("disabled", false);
+      $("html").toggleClass("stuck");
     });
   </script>
 </div>
