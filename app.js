@@ -2,6 +2,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const ejs = require("ejs");
 const mongoose = require("mongoose");
+require("dotenv").config();
 
 const app = express();
 
@@ -15,7 +16,7 @@ app.set("view engine", "ejs");
 
 // Mongoose
 
-mongoose.connect("mongodb://localhost:27017/userDB", { useNewUrlParser: true });
+mongoose.connect(process.env.Mongoose_DB, { useNewUrlParser: true });
 
 const userSchema = {
   name: String,
@@ -76,14 +77,6 @@ const user6 = new User({
 const userTrans = [];
 
 const defaultUser = [user1, user2, user3, user4, user5, user6];
-
-// User.insertMany(defaultUser, function(err){
-//     if(err){
-//         console.log(err);
-//     }else{
-//         console.log("Inserted All");
-//     }
-// });
 
 // App Start
 
@@ -150,9 +143,6 @@ app.post("/customer", function (req, res) {
             amount: price,
           };
 
-          // const newSenderAmount = Number(foundList[0].amount) - price;
-          // const newReceiverAmount = Number(foundList[1].amount) + price;
-
           userTrans.push(user);
 
           User.findOneAndUpdate(
@@ -192,8 +182,6 @@ app.post("/customer", function (req, res) {
               console.log(err);
             }
           });
-
-          console.log("Found!!", foundList);
 
           res.redirect("/transaction");
         } else {
